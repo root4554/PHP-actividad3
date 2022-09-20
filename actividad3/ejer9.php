@@ -1,23 +1,17 @@
 <?php
     $num=$_GET['num'];
+        $j=0;
     
-    $i=0;
-    $j=0;
-    
-    for ($i = 1; $i < $num; $i++) {
-        $i++;
+    for ($i = 1; $i <= $num; $i++) {
         $res = $num % $i;
         if ($res == 0) {
             $j++;
         };
-    }
-    
-    echo $j;
-    
-   if (j<2) {
-    echo "el numero es primo";
+    }    
+   if ($j<=2) {
+    echo "el numero ".$num." es primo";
    }
    else{
-       echo "el numero no es primo";
+       echo "el numero ".$num." no es primo";
    }
 ?> 
