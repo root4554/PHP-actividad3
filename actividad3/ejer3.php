@@ -2,7 +2,7 @@
     $pares = true;
     
     if($pares == true){
-        for ($i = 1; $i < 99; $i++) {
+        for ($i = 1; $i <= 99; $i++) {
             echo "<br>".$i++ ;
         }
     }
