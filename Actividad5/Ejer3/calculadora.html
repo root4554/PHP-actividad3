@@ -7,27 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        $numero1 = $_POST['numero1'];
-        $numero = $POST['numero2'];
-        $operacion = $_POST['operacion'];
-        $resultado = 0;
-        switch ($operacion) {
-            case 'suma':
-                $resultado = $numero1 + $numero2;
-                break;
-            case 'resta':
-                $resultado = $numero1 - $numero2;
-                break;
-            case 'multiplicacion':
-                $resultado = $numero1 * $numero2;
-                break;
-            case 'division':
-                $resultado = $numero1 / $numero2;
-                break;
-        }
-        echo "El resultado es: $resultado";
-    ?>
+ 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
         <fieldset>
             <legend>Calculadora</legend>
@@ -37,16 +17,52 @@
             <input type="number" name="num2">
             <br>
             <br>
-            <button type="button" onclick="suma()">Suma</button>
-            <button type="button" onclick="resta()">Resta</button>
-            <button type="button" onclick="multiplicacion()">Multiplicacion</button>
-            <button type="button" onclick="division()">Division</button>
+            <button type="submit" name="operacion" value="suma">Suma</button>
+            <button type="submit" name="operacion" value="resta">Resta</button>
+            <button type="submit" name="operacion" value="multiplicacion">Multiplicacion</button>
+            <button type="submit" name="operacion" value="division">Division</button>
             <br>
-            <br>
-            <label for="resultado">Resultado</label>
-            <input type="text" name="resultado" id="resultado">
+            
         </fieldset>
     </form>
+    <?php 
+
+    if(isset($_POST['num1'])){
+        $num1 = $_POST['num1'];
+        $numero1 = intval($num1);
+    }else{
+        $num1 = "Num1 no definido";
+    }
+    if(isset($_POST['num2'])){
+        $num2 = $_POST['num2'];
+        $numero2 = intval($num2);
+    }else{
+        $num2 = "Num2 no definido";
+    }
+        
+    if(isset($_POST['operacion'])){
+        $operacion = $_POST['operacion'];
+        $resultado = 0;
+        switch($operacion){
+            case "suma":
+                $resultado = $numero1 + $numero2;
+                break;
+            case "resta":
+                $resultado = $numero1 - $numero2;
+                break;
+            case "multiplicacion":
+                $resultado = $numero1 * $numero2;
+                break;
+            case "division":
+                $resultado = $numero1 / $numero2;
+                break;
+        }
+        echo "El resultado de la operacion es: $resultado";
+    }else{
+        echo "El resultado de la operacion es:";
+    }
+        
+    ?>
     
 </body>
 </html>
